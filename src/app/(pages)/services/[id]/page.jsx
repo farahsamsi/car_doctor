@@ -27,7 +27,7 @@ export default function SingleServicePage() {
         <div className="card bg-base-100 w-full shadow-sm">
           <div className="relative flex justify-center items-center h-[208px] md:h-[300px]">
             <Image
-              src={singleService?.img}
+              src={singleService?.img || null}
               alt="singleService image"
               fill
               className="object-cover"

@@ -11,6 +11,7 @@ export const servicesAPI = createApi({
           method: "GET",
         }),
       }),
+
       //   For more end points write them here
       getSingleService: builder.query({
         query: (id) => ({
@@ -18,8 +19,23 @@ export const servicesAPI = createApi({
           method: "GET",
         }),
       }),
+
+      postService: builder.mutation({
+        query: (serviceCatch) => ({
+          url: "/api/services",
+          method: "POST",
+          body: serviceCatch,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }),
+      }),
     };
   },
 });
 
-export const { useGetAllServicesQuery, useGetSingleServiceQuery } = servicesAPI;
+export const {
+  useGetAllServicesQuery,
+  useGetSingleServiceQuery,
+  usePostServiceMutation,
+} = servicesAPI;

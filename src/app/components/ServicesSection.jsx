@@ -31,7 +31,7 @@ const ServicesSection = () => {
             <div className="card bg-base-100 w-full shadow-sm">
               <div className="relative flex justify-center items-center h-[208px] md:h-[300px]">
                 <Image
-                  src={service?.img}
+                  src={service?.img || null}
                   alt="service image"
                   fill
                   className="object-cover"
