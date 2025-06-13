@@ -12,11 +12,11 @@ export const servicesAPI = createApi({
         }),
       }),
 
-      //   For more end points write them here
       getSingleService: builder.query({
         query: (id) => ({
           url: `/api/services/${id}`,
           method: "GET",
+          providesTags: ["Service"],
         }),
       }),
 
@@ -30,6 +30,15 @@ export const servicesAPI = createApi({
           },
         }),
       }),
+
+      updateService: builder.mutation({
+        query: ({ id, updatedData }) => ({
+          url: `/api/services/${id}`,
+          method: "PATCH",
+          body: updatedData,
+        }),
+        invalidatesTags: ["Service"],
+      }),
     };
   },
 });
@@ -38,4 +47,5 @@ export const {
   useGetAllServicesQuery,
   useGetSingleServiceQuery,
   usePostServiceMutation,
+  useUpdateServiceMutation,
 } = servicesAPI;

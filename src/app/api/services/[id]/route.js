@@ -8,3 +8,17 @@ export async function GET(req, { params }) {
   });
   return Response.json(singleData);
 }
+
+export async function PATCH(req, { params }) {
+  const p = await params;
+  const filter = { _id: new ObjectId(p.id) };
+  const updatedDoc = await req.json();
+  const updatedData = await dbConnect("services").updateOne(
+    filter,
+    {
+      $set: { ...updatedDoc },
+    },
+    { upsert: true }
+  );
+  return Response.json(updatedData);
+}
