@@ -20,15 +20,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ReduxWrapper>
-      <html lang="en">
+    <html lang="en">
+      <ReduxWrapper>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <Navbar></Navbar>
           {children}
         </body>
-      </html>
-    </ReduxWrapper>
+      </ReduxWrapper>
+    </html>
   );
 }
